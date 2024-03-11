@@ -26,8 +26,8 @@ public class JDBCTests {
 		try(Connection con = 
 				DriverManager.getConnection(
 						"jdbc:oracle:thin:@localhost:1521:xe",
-						"h970920",
-						"5591")) 
+						"webdb",
+						"12345")) 
 		{
 			log.info(con);
 		} catch (Exception e) {
