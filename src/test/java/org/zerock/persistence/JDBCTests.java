@@ -1,4 +1,4 @@
-package com.study.erum.persistence;
+package org.zerock.persistence;
 
 import static org.junit.Assert.fail;
 
@@ -26,8 +26,8 @@ public class JDBCTests {
 		try(Connection con = 
 				DriverManager.getConnection(
 						"jdbc:oracle:thin:@localhost:1521:xe",
-						"webdb",
-						"12345")) 
+						"h970920",
+						"5591")) 
 		{
 			log.info(con);
 		} catch (Exception e) {
