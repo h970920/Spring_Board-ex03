@@ -35,16 +35,18 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean modify(BoardVO board) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("modify......" +  board);
+		return mapper.update(board) == 1;
 	}
 
 	@Override
 	public boolean remove(long bno) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("remove...... " + bno);
+		return mapper.delete(bno)==1;
 	}
 
+	// 정상적으로 수정과 삭제가 이루어지면 1이라는 값이 반환되기때문에 == 연산자를 이용해 true or false를 처리할 수 있다.
+	
 	@Override
 	public List<BoardVO> getList() {
 		log.info("getList........ ");
