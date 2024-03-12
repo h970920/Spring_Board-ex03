@@ -9,21 +9,18 @@ import org.zerock.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 @Log4j
-@RequestMapping("/board/")
+@RequestMapping("/board/*")
 @AllArgsConstructor
 public class BoardController {
 
-		private BoardService service;
-		
-		@GetMapping("/list/")
-		public void list(Model model) {
-			log.info("list");
-			model.addAttribute("list" + service.getList());
-		}
-	
+   private BoardService service;
+   
+   @GetMapping("/list")
+   public void list(Model model) {
+      log.info("list");
+      model.addAttribute("list",service.getList());
+   }
+   
 }
