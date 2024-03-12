@@ -2,6 +2,7 @@ package org.zerock.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.BoardVO;
@@ -21,12 +22,15 @@ public class BoardServiceImpl implements BoardService {
 	private BoardMapper mapper;
 	
 	@Override
-	public void register(BoardVO board) {}
+	public void register(BoardVO board) {
+		log.info("register...." + board);
+		mapper.insertSelectKey(board);
+	}
 
 	@Override
 	public BoardVO get(long bno) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("get ...... " + bno);
+		return mapper.read(bno);
 	}
 
 	@Override
@@ -43,9 +47,10 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("getList........ ");
+		return mapper.getList();
 	}
+	
 	
 	
 	
