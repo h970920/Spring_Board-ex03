@@ -79,6 +79,16 @@ public class BoardControllerTest {
     	
     	log.info(resultPage);
     }
+    
+    @Test
+    public void testRemove() throws Exception {
+    	//삭제 전에 데이터베이스에 게시물 번호를 확인해야한다
+    	String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove")
+    			.param("bno", "25")
+    			).andReturn().getModelAndView().getViewName();
+    	log.info(resultPage);
+    	
+    }
    
     
 }
